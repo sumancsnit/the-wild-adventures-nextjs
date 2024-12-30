@@ -1,5 +1,11 @@
+import Reservation from '@/app/_components/Reservation';
 import TextExpander from '@/app/_components/TextExpander';
-import { getCabin, getCabins } from '@/app/_lib/data-service';
+import {
+  getBookedDatesByCabinId,
+  getCabin,
+  getCabins,
+  getSettings,
+} from '@/app/_lib/data-service';
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 
@@ -68,9 +74,10 @@ const Page = async ({ params }) => {
       </div>
 
       <div>
-        <h2 className='text-5xl font-semibold text-center'>
-          Reserve today. Pay on arrival.
+        <h2 className='text-5xl font-semibold text-center mb-10 text-accent-400'>
+          Reserve {name} today. Pay on arrival.
         </h2>
+        <Reservation cabin={cabin} />
       </div>
     </div>
   );
