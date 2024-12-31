@@ -1,4 +1,5 @@
-function ReservationForm({ cabin }) {
+'use client';
+const ReservationForm = ({ cabin }) => {
   // CHANGE
   const { maxCapacity } = cabin;
 
@@ -61,6 +62,6 @@ function ReservationForm({ cabin }) {
       </form>
     </div>
   );
-}
+};
 
 export default ReservationForm;
