@@ -9,8 +9,12 @@ const Reservation = async ({ cabin }) => {
   ]);
   return (
     <div className='grid grid-cols-2 border border-primary-800 min-h-[400px]'>
-      <DateSelector />
-      <ReservationForm />
+      <DateSelector
+        settings={settings}
+        bookedDates={bookedDates}
+        cabin={cabin}
+      />
+      <ReservationForm cabin={cabin} />
     </div>
   );
 };
