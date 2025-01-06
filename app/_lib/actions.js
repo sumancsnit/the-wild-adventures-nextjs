@@ -1,6 +1,7 @@
 'use server';
 import { auth, signIn, signOut } from '@/app/_lib/auth';
 import { supabase } from './supabase';
+import { revalidatePath } from 'next/cache';
 
 export const updateGuest = async (formData) => {
   const session = await auth();
@@ -20,6 +21,8 @@ export const updateGuest = async (formData) => {
   if (error) {
     throw new Error('Guest could not be updated');
   }
+
+  revalidatePath('/account/profile');
 };
 
 export const signInAction = async () => {
