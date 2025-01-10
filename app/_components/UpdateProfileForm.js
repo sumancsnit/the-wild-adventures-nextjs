@@ -2,10 +2,9 @@
 import { useState } from 'react';
 import { updateGuest } from '../_lib/actions';
 import { useFormStatus } from 'react-dom';
+import SubmitButton from './SubmitButton';
 
 const UpdateProfileForm = ({ guest, children }) => {
-  const [count, setCount] = useState();
-  // CHANGE
   const { fullName, email, nationality, nationalID, countryFlag } = guest;
 
   return (
@@ -57,22 +56,10 @@ const UpdateProfileForm = ({ guest, children }) => {
         </div>
 
         <div className='flex justify-end items-center gap-6'>
-          <Button />
+          <SubmitButton pendingLabel='Updating...'>Update Profile</SubmitButton>
         </div>
       </form>
     </div>
-  );
-};
-
-const Button = () => {
-  const { pending } = useFormStatus();
-  return (
-    <button
-      disabled={pending}
-      className='bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300'
-    >
-      {pending ? 'Updating...' : 'Update profile'}
-    </button>
   );
 };
 
