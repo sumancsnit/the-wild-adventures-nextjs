@@ -39,7 +39,11 @@ export const signOutAction = async () => {
   });
 };
 
-export const deleteReservation = async (bookingId) => {
+export const createBooking = async (formData) => {
+  console.log('🚀 ~ createBooking ~ formData:', formData);
+};
+
+export const deleteBooking = async (bookingId) => {
   const session = await auth();
   if (!session) throw new Error('You must be logged in');
   const guestBookings = await getBookings(session.user.guestId);
