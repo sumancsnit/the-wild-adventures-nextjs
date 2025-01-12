@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  webpack: (config) => {
+    config.ignoreWarnings = [
+      {
+        module: /node_modules/,
+        message: /peer dependency/,
+      },
+    ];
+    return config;
+  },
   images: {
     remotePatterns: [
       {

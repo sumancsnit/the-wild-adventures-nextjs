@@ -6,8 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "prod": "next build & next start",
-    "lint": "next lint"
+    "prod": "next build & next start --legacy-peer-deps",
+    "lint": "next lint",
+    "install": "npm install --legacy-peer-deps"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
